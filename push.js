@@ -6,5 +6,5 @@ Array.prototype.mypush = function () {
 }
 
 const months = ['Jan', 'March', 'June','Dec','August'];
-months.push("April","May");
+months.mypush("April","May");
 console.log(months);
