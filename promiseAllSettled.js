@@ -10,7 +10,7 @@ Promise.myall = (arrOfPromises)=> {
           }).catch((error) => {
               result.push(error);
               if (i == arrOfPromises.length - 1) {
-                reject(result);
+                resolve(result);
               }
           })
       }
