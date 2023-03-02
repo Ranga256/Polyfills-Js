@@ -28,7 +28,7 @@ Promise.myrace([promise1,promise2]).then((data)=>{
   console.log(error);
 });
 
-//[ 2, 'Some error' ]
+//two
 
 Promise.myrace([promise1,promise3]).then((data)=>{
   console.log(data);
@@ -36,4 +36,4 @@ Promise.myrace([promise1,promise3]).then((data)=>{
   console.log(error);
 });
 
-//[2,'Success]
+//3rd promise
