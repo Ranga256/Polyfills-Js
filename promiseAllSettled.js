@@ -3,12 +3,14 @@ Promise.myall = (arrOfPromises)=> {
       let result = [];
       for (let i = 0; i < arrOfPromises.length; i++) {
           arrOfPromises[i].then((data) => {
-              result.push(data);
+              result.push({status: "fulfilled",value: data
+              });
               if (i == arrOfPromises.length - 1) {
                   resolve(result);
               }
           }).catch((error) => {
-              result.push(error);
+              result.push({status: "rejected",reason: data
+              });
               if (i == arrOfPromises.length - 1) {
                 resolve(result);
               }
@@ -23,17 +25,13 @@ const p2 = Promise.reject("Some error");
 const p3 = Promise.resolve("Success");
 
 Promise.myall([p1,p2]).then((data)=>{
-  console.log(data);
-}).catch((error)=>{
-  console.log(error);
+  console.log(data.status);
 });
 
-//[ 2, 'Some error' ]
+//[ fulfilled, rejected ]
 
 Promise.myall([p1,p3]).then((data)=>{
-  console.log(data);
-}).catch((error)=>{
-  console.log(error);
+  console.log(data.status);
 });
 
-//[2,'Success]
+//[fulfilled, fulfilled]
