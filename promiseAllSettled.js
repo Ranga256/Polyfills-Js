@@ -9,7 +9,7 @@ Promise.myall = (arrOfPromises)=> {
                   resolve(result);
               }
           }).catch((error) => {
-              result.push({status: "rejected",reason: data
+              result.push({status: "rejected",reason: error
               });
               if (i == arrOfPromises.length - 1) {
                 resolve(result);
