@@ -1,10 +1,12 @@
 Promise.myall = (arrOfPromises)=> {
     return new Promise((resolve, reject) => {
         let result = [];
+        total = 0;
         for (let i = 0; i < arrOfPromises.length; i++) {
             arrOfPromises[i].then((data) => {
                 result.push(data);
-                if (i == arrOfPromises.length - 1) {
+                total++:
+                if (total == arrOfPromises.length) {
                     resolve(result);
                 }
             }).catch((error) => {
